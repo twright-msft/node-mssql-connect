@@ -1,0 +1,19 @@
+{
+  "name": "node-connect",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twright-msft/node-mssql-connect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twright-msft/node-mssql-connect/issues"
+  },
+  "homepage": "https://github.com/twright-msft/node-mssql-connect#readme",
+  "description": ""
+}
