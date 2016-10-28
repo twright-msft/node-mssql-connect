@@ -9,10 +9,10 @@ setInterval(function () {
   if(!connected) {
     var Connection = mssql.Connection;
     var config = {
-        userName: 'sa'
-        ,password: 'Yukon900'
-        ,server: '10.0.0.20'
-        ,options: {database:'master'}
+        userName: 'sa' //use sa or another user
+        ,password: '' //enter your password here
+        ,server: '10.0.0.20' //change ID address/servername depending on your env
+        ,options: {database:'master'}  //optionally change DB you are connected to
         };
     var connection = new Connection(config);
     console.log("Connection attempt: " + connectionAttempts);
