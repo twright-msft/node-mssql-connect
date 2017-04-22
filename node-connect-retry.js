@@ -10,8 +10,8 @@ setInterval(function () {
     var Connection = mssql.Connection;
     var config = {
         userName: 'sa' //use sa or another user
-        ,password: '' //enter your password here
-        ,server: '10.0.0.20' //change ID address/servername depending on your env
+        ,password: 'Yukon900' //enter your password here
+        ,server: 'localhost' //change ID address/servername depending on your env
         ,options: {database:'master'}  //optionally change DB you are connected to
         };
     var connection = new Connection(config);
@@ -36,7 +36,7 @@ setInterval(function () {
 function getData(connection) {
   console.log("Getting Data...");
   var Request = require('tedious').Request;
-  request = new Request("SELECT CONVERT(sysname,SERVERPROPERTY('MachineName'))", function(err, rowCount) {
+  request = new Request("SELECT @@SERVERNAME, HOST_NAME()", function(err, rowCount) {
         if (err) {
             console.log(err);
             connected = false;
