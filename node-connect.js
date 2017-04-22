@@ -4,7 +4,7 @@ var Connection = mssql.Connection;
 
 var config = {
         userName: 'sa'
-        ,password: 'sa'
+        ,password: 'your_password'
         ,server: 'localhost'
         ,options: {database:'master'}
         };
