@@ -10,7 +10,7 @@ setInterval(function () {
     var Connection = mssql.Connection;
     var config = {
         userName: 'sa' //use sa or another user
-        ,password: 'Yukon900' //enter your password here
+        ,password: 'your_password' //enter your password here
         ,server: 'localhost' //change ID address/servername depending on your env
         ,options: {database:'master'}  //optionally change DB you are connected to
         };
