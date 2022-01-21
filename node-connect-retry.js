@@ -15,9 +15,9 @@ d.run(function() {
 		  if(!connected) {
 			var Connection = mssql.Connection;
 			var config = {
-				userName: 'sa' //use sa or another user
-				,password: 'Yukon900' //enter your password here
-				,server: '10.128.16.89' //change ID address/servername depending on your env
+				userName: '' //use sa or another user
+				,password: '' //enter your password here
+				,server: '' //change ID address/servername depending on your env
 				,options: {database:'master'}  //optionally change DB you are connected to
 				,connectionTimeout: '60000'
 				,requestTimeout: '60000'
@@ -62,7 +62,6 @@ d.run(function() {
 
 	function getData(connection) {
 	  try {
-		  console.log("Getting Data...");
 		  var Request = require('tedious').Request;
 		  request = new Request("SELECT @@SERVERNAME", function(err, rowCount) {
 				if (err) {
