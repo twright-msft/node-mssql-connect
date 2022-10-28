@@ -9,30 +9,36 @@ d.run(function() {
 	var connectionAttempts = 1;
 	var connectionCount = 0;
 	var connected = false;
-	console.log("Attempting connection...");
+	console.log("Starting App...");
 	setInterval(function () {
 	  try {
 		  if(!connected) {
 			var Connection = mssql.Connection;
 			var config = {
-				userName: '' //use sa or another user
-				,password: '' //enter your password here
-				,server: '' //change ID address/servername depending on your env
-				,options: {database:'master'}  //optionally change DB you are connected to
-				,connectionTimeout: '60000'
-				,requestTimeout: '60000'
-				,pool: {
-					max: 10
-					,min: 0
-					,idleTimeoutMillis: 60000
-				}
-				,options: {
+				server: '', //change ID address/servername depending on your env
+				authentication: {
+					type: 'default',
+					options: {
+						userName: '', //use sa or another user
+						password: '' //enter your password here    
+					}
+				},
+				options: {
+					database:'master', //optionally change DB you are connected to
+					port: 1433,
 					encrypt: true
+				},
+				connectTimeout: '60000',
+				requestTimeout: '60000',
+				pool: {
+					max: 10,
+					min: 0,
+					idleTimeoutMillis: 60000
 				}
-				};
+			};
 			var connection = new Connection(config);
 			//console.log("Connection attempt: " + connectionAttempts);
-			console.log("Atempting connection");
+			console.log("Atempting connection...");
 			connectionAttempts++;
 			connection.on('connect', function(err) {
 			  if (err) {
@@ -53,7 +59,9 @@ d.run(function() {
 				setInterval(function() { getData(connection); }, 1000);
 			  }
 			});
-		  }
+
+			connection.connect();
+		}
 	  } catch (e) {
 		console.log(e);
 	  }
