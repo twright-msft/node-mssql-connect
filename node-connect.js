@@ -3,11 +3,20 @@ var mssql = require('tedious');
 var Connection = mssql.Connection;
 
 var config = {
-        userName: 'sa'
-        ,password: 'your_password'
-        ,server: 'localhost'
-        ,options: {database:'master'}
-        };
+    server: 'localhost',
+    authentication: {
+        type: 'default',
+        options: {
+            userName: 'sa',
+            password: 'your_password'        
+        }
+    },
+    options: {
+        database:'master',
+        port: 1433,
+        encrypt: true
+    }
+};
 
 var connection = new Connection(config);
 
@@ -24,3 +33,5 @@ connection.on('connect', function(err) {
     })
     connection.execSql(request);
 });
+
+connection.connect();
